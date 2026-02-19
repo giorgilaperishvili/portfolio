@@ -1,11 +1,158 @@
 <!doctype html>
-<html lang="en">
+<html lang="ka">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ავეჯის პორტფოლიო | პრემიუმ დიზაინი</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Portfolio</h1>
+    <section class="hero">
+      <h1>ავეჯის პორტფოლიო</h1>
+      <p>ფუფუნება და ფუნქციონალურობა</p>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">საუკეთესო ნამუშევრები</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-index="0">
+          <img
+            src="images/0ae42d8d-6d46-4f86-bbd3-1ac806942037.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="1">
+          <img
+            src="images/2e981ede-8e91-4d85-921c-1deba262c4da.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="2">
+          <img
+            src="images/4c1cdcbd-7326-4c34-822e-45a46d997f01.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="3">
+          <img
+            src="images/707a01ed-670e-477e-819d-558374c8251f.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="4">
+          <img
+            src="images/78583041-8fcf-4a3f-a73e-652b98dfa996.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="5">
+          <img
+            src="images/84170a20-da1a-4573-9b99-31eec7306ba1.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="6">
+          <img
+            src="images/8dfc9a79-d75f-485b-bae2-d2dff784c7d8.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="7">
+          <img
+            src="images/a983ae40-ef6e-45c8-a71d-e26ae35b19ff.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="8">
+          <img
+            src="images/c868b96a-9189-4155-8ae2-16135aaba691.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="9">
+          <img
+            src="images/deac89f5-d714-4bb9-b932-515bdc828a2a.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+        <div class="gallery-item" data-index="10">
+          <img
+            src="images/e21d8e89-a0e1-49c7-a3c4-b04d4908081a.jfif"
+            alt="ავეჯის დიზაინი"
+          />
+        </div>
+      </div>
+    </div>
+
+    <section class="downloads">
+      <div class="container">
+        <h2 class="section-title">პროექტის დოკუმენტაცია</h2>
+        <div class="file-list">
+          <div class="file-card">
+            <div class="file-info">
+              <span class="file-icon">📊</span>
+              <div>
+                <h3>გარდერობის განშლა</h3>
+                <p>Excel ფაილი</p>
+              </div>
+            </div>
+            <a href="files/გარდერობის განშლა.xls" class="download-btn" download
+              >ჩამოტვირთვა</a
+            >
+          </div>
+          <div class="file-card">
+            <div class="file-info">
+              <span class="file-icon">📊</span>
+              <div>
+                <h3>სამზარეულოს განშლა</h3>
+                <p>Excel ფაილი</p>
+              </div>
+            </div>
+            <a href="files/სამზარეულოს განშლა.xls" class="download-btn" download
+              >ჩამოტვირთვა</a
+            >
+          </div>
+          <div class="file-card">
+            <div class="file-info">
+              <span class="file-icon">📊</span>
+              <div>
+                <h3>შემოსასვლელის განშლა</h3>
+                <p>Excel ფაილი</p>
+              </div>
+            </div>
+            <a
+              href="files/შემოსასვლელის განშლა.xls"
+              class="download-btn"
+              download
+              >ჩამოტვირთვა</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 პორტფოლიო. ყველა უფლება დაცულია.</p>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="modal">
+      <span class="close-modal">&times;</span>
+      <button class="nav-btn prev-btn">&larr;</button>
+      <img class="modal-content" src="" alt="Full View" />
+      <button class="nav-btn next-btn">&rarr;</button>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
