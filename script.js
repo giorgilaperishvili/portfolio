@@ -1,40 +1,50 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Lightbox Functionality with Navigation
-  const galleryItems = document.querySelectorAll(".gallery-item");
+  // Lightbox Functionality with Project-Specific Navigation
   const modal = document.querySelector(".modal");
   const modalImg = document.querySelector(".modal-content");
   const closeModal = document.querySelector(".close-modal");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
 
+  let currentProjectImages = [];
   let currentIndex = 0;
-  const images = Array.from(galleryItems).map(
-    (item) => item.querySelector("img").src,
-  );
 
-  const updateModalImage = (index) => {
-    currentIndex = index;
-    modalImg.src = images[currentIndex];
-  };
+  // Attach click events to all gallery items
+  document.querySelectorAll(".project-section").forEach((projectDoc) => {
+    const items = projectDoc.querySelectorAll(".gallery-item");
+    const images = Array.from(items).map(
+      (item) => item.querySelector("img").src,
+    );
 
-  galleryItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      updateModalImage(index);
-      modal.classList.add("active");
-      document.body.style.overflow = "hidden";
+    items.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        currentProjectImages = images;
+        currentIndex = index;
+        updateModalImage();
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
     });
   });
 
+  const updateModalImage = () => {
+    modalImg.src = currentProjectImages[currentIndex];
+  };
+
   const nextImage = (e) => {
     if (e) e.stopPropagation();
-    currentIndex = (currentIndex + 1) % images.length;
-    updateModalImage(currentIndex);
+    if (currentProjectImages.length === 0) return;
+    currentIndex = (currentIndex + 1) % currentProjectImages.length;
+    updateModalImage();
   };
 
   const prevImage = (e) => {
     if (e) e.stopPropagation();
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateModalImage(currentIndex);
+    if (currentProjectImages.length === 0) return;
+    currentIndex =
+      (currentIndex - 1 + currentProjectImages.length) %
+      currentProjectImages.length;
+    updateModalImage();
   };
 
   nextBtn.addEventListener("click", nextImage);
@@ -65,7 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Scroll Reveal Effect
   const reveal = () => {
-    const reveals = document.querySelectorAll(".gallery-item, .file-card");
+    const reveals = document.querySelectorAll(
+      ".gallery-item, .file-card, .project-section",
+    );
     reveals.forEach((el) => {
       const windowHeight = window.innerHeight;
       const elementTop = el.getBoundingClientRect().top;
@@ -78,11 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Initial styles for reveal animation
-  document.querySelectorAll(".gallery-item, .file-card").forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(30px)";
-    el.style.transition = "all 0.8s ease-out";
-  });
+  document
+    .querySelectorAll(".gallery-item, .file-card, .project-section")
+    .forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(30px)";
+      el.style.transition = "all 0.8s ease-out";
+    });
 
   window.addEventListener("scroll", reveal);
   reveal(); // Initial check
